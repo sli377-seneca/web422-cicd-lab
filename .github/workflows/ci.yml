@@ -9,19 +9,19 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install Node
+      - name: Setup Node
         run: actions/setup-node@v4
 
-      - name: Install dependencies from lock
+      - name: Install packages
         run: npm ci
 
       - name: Run ESlint
         run: npm run lint
 
-      - name: Jest unit tests
+      - name: Run Jest tests
         run: npm run test:ci
 
-      - name: Cypress E2E tests
+      - name: Run Cypress tests
         uses: cypress-io/github-action@v6
         with:
           install: false
